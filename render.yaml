@@ -1,4 +1,5 @@
 services:
   - name: web
-    buildCommand: npm install && npm run build
+    env: node
+    buildCommand: npm install
     startCommand: npm start
