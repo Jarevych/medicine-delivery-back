@@ -1,43 +1,6 @@
 const mongoose = require('mongoose');
 
-// Схема адреси
-const AddressSchema = new mongoose.Schema({
-  street: {
-    type: String,
-    required: true
-  },
-  city: {
-    type: String,
-    required: true
-  },
-  postcode: {
-    type: String,
-    required: true
-  }
-});
-
-// Схема ліків
-const MedicineSchema = new mongoose.Schema({
-  id: {
-    type: Number,
-    required: true
-  },
-  name: {
-    type: String,
-    required: true
-  },
-  price: {
-    type: Number,
-    required: true
-  },
-  date_added: {
-    type: Date,
-    required: true
-  }
-});
-
-// Основна схема аптеки
-const PharmacySchema = new mongoose.Schema({
+const pharmacySchema = new mongoose.Schema({
   id: {
     type: Number,
     required: true
@@ -47,15 +10,41 @@ const PharmacySchema = new mongoose.Schema({
     required: true
   },
   address: {
-    type: AddressSchema,
-    required: true
+    street: {
+      type: String,
+      required: true
+    },
+    city: {
+      type: String,
+      required: true
+    },
+    postcode: {
+      type: String,
+      required: true
+    }
   },
-  medicines: {
-    type: [MedicineSchema],
-    required: true
-  }
+  medicines: [
+    {
+      id: {
+        type: Number,
+        required: true
+      },
+      name: {
+        type: String,
+        required: true
+      },
+      price: {
+        type: Number,
+        required: true
+      },
+      dateAdded: {
+        type: Date,
+        default: Date.now
+      }
+    }
+  ]
 });
 
-const Pharmacy = mongoose.model('Pharmacy', PharmacySchema);
+const Pharmacy = mongoose.model('Pharmacy', pharmacySchema);
 
 module.exports = Pharmacy;
