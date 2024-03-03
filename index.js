@@ -7,7 +7,7 @@ const storesRouter = require('./src/routes/storesRouter')
 const cors = require('cors')
 
 dotenv.config({
-    path: process.env.NODE_ENV === 'production' ? '.envs/production.env' : './envs/development.env'
+    path: process.env.NODE_ENV === 'production' ? './src/main.env' : './src/main.env'
   });
 
 connectDB();
