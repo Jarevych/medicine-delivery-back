@@ -1,6 +1,7 @@
 const express = require('express');
 const connectDB = require('./config/database');
 const app = express();
+const databaseController = require('./src/controllers/databaseController');
 const morgan = require('morgan')
 const dotenv = require('dotenv')
 const storesRouter = require('./src/routes/storesRouter')
@@ -11,6 +12,7 @@ dotenv.config({
   });
 
 connectDB();
+app.get('/check-database-access', databaseController.checkDatabaseAccess);
 
 app.use(cors())
 
