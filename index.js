@@ -11,7 +11,7 @@ dotenv.config({
 });
 
 connectDB();
-app.get("/check-database-access", databaseController.checkDatabaseAccess);
+// app.get("/check-database-access", databaseController.checkDatabaseAccess);
 
 app.use(cors());
 
