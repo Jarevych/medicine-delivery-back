@@ -1,7 +1,6 @@
 const express = require("express");
 const connectDB = require("./config/database");
 const app = express();
-const databaseController = require("./src/controllers/databaseContro");
 const morgan = require("morgan");
 const dotenv = require("dotenv");
 const storesRouter = require("./src/routes/storesRouter");
