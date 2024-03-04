@@ -6,11 +6,13 @@ const orderSchema = new mongoose.Schema({
   address: String,
   email: String,
   phone: Number,
-  drugs: [{
-    id: Number,
-    name: String,
-    price: Number,
-  }],
+  drugs: [
+    {
+      id: Number,
+      name: String,
+      price: Number,
+    },
+  ],
 });
 
 const Order = mongoose.model("Order", orderSchema);

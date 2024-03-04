@@ -1,13 +1,13 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const pharmacySchema = new mongoose.Schema({
   id: {
     type: Number,
-    required: true
+    required: true,
   },
   name: {
     type: String,
-    required: true
+    required: true,
   },
   address: {
     street: {
@@ -18,7 +18,7 @@ const pharmacySchema = new mongoose.Schema({
     },
     postcode: {
       type: String,
-    }
+    },
   },
   medicines: [
     {
@@ -27,17 +27,17 @@ const pharmacySchema = new mongoose.Schema({
       },
       name: {
         type: String,
-     },
+      },
       price: {
         type: Number,
       },
       dateAdded: {
         type: Date,
-      }
-    }
-  ]
+      },
+    },
+  ],
 });
 
-const Pharmacy = mongoose.model('Pharmacy', pharmacySchema);
+const Pharmacy = mongoose.model("Pharmacy", pharmacySchema);
 
 module.exports = Pharmacy;

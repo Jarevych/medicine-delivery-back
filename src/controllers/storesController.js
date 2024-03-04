@@ -1,12 +1,10 @@
 const Pharmacy = require("../models/pharmacyModel");
-const ctrlWrapper = require('../services/ctrlWrapper');
+const ctrlWrapper = require("../services/ctrlWrapper");
 const makeMongoApiRequest = require("../services/monjs");
 const getAllProducts = async (req, res) => {
   try {
     const stores = await Pharmacy.find();
-    const mongoResponse = await makeMongoApiRequest()
-      console.log(mongoResponse)
-    console.log(stores)
+    const mongoResponse = await makeMongoApiRequest();
     if (stores.length === 0) {
       console.warn("products not found");
     }
@@ -18,10 +16,6 @@ const getAllProducts = async (req, res) => {
   }
 };
 
-
 module.exports = {
-    getAllProducts: ctrlWrapper(getAllProducts),
+  getAllProducts: ctrlWrapper(getAllProducts),
 };
-
-
-
