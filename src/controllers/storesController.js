@@ -1,6 +1,6 @@
 const Pharmacy = require("../models/pharmacyModel");
 const ctrlWrapper = require('../services/ctrlWrapper');
-const makeMongoApiRequest = require("../services/mongoApi");
+const makeMongoApiRequest = require("../services/monjs");
 const getAllProducts = async (req, res) => {
   try {
     const stores = await Pharmacy.find();
